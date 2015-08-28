@@ -17,18 +17,30 @@ Notes
   this is not always accurate, given that
   `RequestInterface::withRequestTarget()` explicitly allows any type for the
   request target, which must be preserved verbatim.
-- `ServerRequestInterface::getUploadedFiles()` returns an untyped array as
-  it returns a tree-like structure instead of a key-value structure.
 - `ServerRequestInterface::getParsedBody()` is specified as returning
   `null|array|object` so is typed here as `mixed`. There has been some
   discussion about banning the `object` case as any usage couples you to a
   specific implementation or stack, which would allow it to be typed as
-  `?array<string,string>`. This is not done because PHP implementations would
+  `?array<string,mixed>`. This is not done because PHP implementations would
   not have to honor this type.
-- `ServerRequestInterface::getQueryParams()` returns an `array` with `mixed`
-  values as it is a tree-like structure (eg `?a[b][c]=123`).
-- The return value of these functions is not defined in PSR7; this project defines
-  them as returning `void` to prevent users depending on unspecified behavior:
+- `ServerRequestInterface::getQueryParams()` and `getUploadedFiles()` return
+  untyped arrays as they return a tree-like structure instead of a
+  key-value structure - eg `?a[b][c]=123`. They could be typed as
+  `array<string,mixed>`, however this would make them much more
+  inconvenient to use.
+- The return value of these functions is not defined in PSR7; this project
+  defines them as returning `void` to prevent users depending on unspecified
+  behavior:
    - `StreamInterface::seek()`
    - `StreamInterface::rewind()`
    - `UploadedFileInterface::moveTo()`
+
+Future Work
+-----------
+
+Create a derived standard for Hack, addressing the above notes. Ideas
+include:
+
+ - banning non-string request targets
+ - banning `object` parsed bodies
+ - flattening `getUploadedFiles`, `getParsedBody`, `getQueryParams`
