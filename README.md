@@ -23,3 +23,14 @@ Notes
   this is not always accurate, given that
   `RequestInterface::withRequestTarget()` explicitly allows any type for the
   request target, which must be preserved verbatim.
+- `ServerRequestInterface::getUploadedFiles()` returns an untyped array as
+  it returns a tree-like structure instead of a key-value structure.
+- `ServerRequestInterface::getParsedBody()` is specified as returning
+  `null|array|object` so is typed here as `mixed`. There has been some
+  discussion about banning the `object` case as any usage couples you to a
+  specific implementation or stack, which would allow it to be typed as
+  `?array<string,string>`. This is not done because PHP implementations would
+  not have to honor this type.
+- `ServerRequestInterface::getQueryParams()` returns an `array` with `mixed`
+  values as it is a tree-like structure (eg `?a[b][c]=123`).
+
