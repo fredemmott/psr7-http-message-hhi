@@ -44,3 +44,5 @@ include:
  - banning non-string request targets
  - banning `object` parsed bodies
  - flattening `getUploadedFiles`, `getParsedBody`, `getQueryParams`
+
+This would be a separate project.
