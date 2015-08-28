@@ -19,3 +19,7 @@ Notes
 - The return value of `StreamInterface::rewind()` is undefined in PSR7. This
   project defines it as `void` to avoid users depending on a non-standard
   return value.
+- `RequestInterface::getRequestTarget()` is marked as `@return string`, however
+  this is not always accurate, given that
+  `RequestInterface::withRequestTarget()` explicitly allows any type for the
+  request target, which must be preserved verbatim.
