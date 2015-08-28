@@ -98,7 +98,7 @@ interface ServerRequestInterface extends RequestInterface
      *
      * @return array
      */
-    public function getQueryParams(): array<string,mixed>;
+    public function getQueryParams(): array;
 
     /**
      * Return an instance with the specified query string arguments.
