@@ -13,12 +13,6 @@ runtime, while also giving the benefits of static type checking.
 Notes
 -----
 
-- The return value of `StreamInterface::seek()` is undefined in PSR7. This
-  project defines it as `void` to avoid users depending on a non-standard
-  return value.
-- The return value of `StreamInterface::rewind()` is undefined in PSR7. This
-  project defines it as `void` to avoid users depending on a non-standard
-  return value.
 - `RequestInterface::getRequestTarget()` is marked as `@return string`, however
   this is not always accurate, given that
   `RequestInterface::withRequestTarget()` explicitly allows any type for the
@@ -33,4 +27,8 @@ Notes
   not have to honor this type.
 - `ServerRequestInterface::getQueryParams()` returns an `array` with `mixed`
   values as it is a tree-like structure (eg `?a[b][c]=123`).
-
+- The return value of these functions is not defined in PSR7; this project defines
+  them as returning `void` to prevent users depending on unspecified behavior:
+   - `StreamInterface::seek()`
+   - `StreamInterface::rewind()`
+   - `UploadedFileInterface::moveTo()`
