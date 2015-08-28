@@ -1,4 +1,9 @@
 {
+    "name": "hack-psr/psr7-http-message-hhi",
+    "description": "Typechecker definitions for PSR-7",
+    "keywords": ["hhvm", "hack", "hhi", "psr", "psr-7", "psr7", "http-message"],
+    "homepage": "https://github.com/fredemmott/psr7-http-message-hhi",
+    "license": ["MIT"],
     "require": {
         "psr/http-message": "^1.0"
     }
