@@ -84,7 +84,7 @@ interface ServerRequestInterface extends RequestInterface
      * @param array $cookies Array of key/value pairs representing cookies.
      * @return self
      */
-    public function withCookieParams(array<string,string> $cookies): ServerRequestInterface;
+    public function withCookieParams(array<string,string> $cookies): this;
 
     /**
      * Retrieve query string arguments.
@@ -122,7 +122,7 @@ interface ServerRequestInterface extends RequestInterface
      *     $_GET.
      * @return self
      */
-    public function withQueryParams(array<string,string> $query): ServerRequestInterface;
+    public function withQueryParams(array<string,string> $query): this;
 
     /**
      * Retrieve normalized file upload data.
@@ -149,7 +149,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return self
      * @throws \InvalidArgumentException if an invalid structure is provided.
      */
-    public function withUploadedFiles(array $uploadedFiles): ServerRequestInterface;
+    public function withUploadedFiles(array $uploadedFiles): this;
 
     /**
      * Retrieve any parameters provided in the request body.
@@ -196,7 +196,7 @@ interface ServerRequestInterface extends RequestInterface
      * @throws \InvalidArgumentException if an unsupported argument type is
      *     provided.
      */
-    public function withParsedBody(mixed $data): ServerRequestInterface;
+    public function withParsedBody(mixed $data): this;
 
     /**
      * Retrieve attributes derived from the request.
@@ -243,7 +243,7 @@ interface ServerRequestInterface extends RequestInterface
      * @param mixed $value The value of the attribute.
      * @return self
      */
-    public function withAttribute(string $name, mixed $value): ServerRequestInterface;
+    public function withAttribute(string $name, mixed $value): this;
 
     /**
      * Return an instance that removes the specified derived request attribute.
@@ -259,5 +259,5 @@ interface ServerRequestInterface extends RequestInterface
      * @param string $name The attribute name.
      * @return self
      */
-    public function withoutAttribute(string $name): ServerRequestInterface;
+    public function withoutAttribute(string $name): this;
 }
