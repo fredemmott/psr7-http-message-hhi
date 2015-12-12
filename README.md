@@ -16,7 +16,7 @@ Notes
 - `RequestInterface::getRequestTarget()` is marked as `@return string`, however
   this is not always accurate, given that
   `RequestInterface::withRequestTarget()` explicitly allows any type for the
-  request target, which must be preserved verbatim.
+  request target, which must be preserved verbatim - php-fig/http-message#67
 - `ServerRequestInterface::getParsedBody()` is specified as returning
   `null|array|object` so is typed here as `mixed`. There has been some
   discussion about banning the `object` case as any usage couples you to a
@@ -30,7 +30,7 @@ Notes
   inconvenient to use.
 - The return value of these functions is not defined in PSR7; this project
   defines them as returning `void` to prevent users depending on unspecified
-  behavior:
+  behavior (php-fig/http-message#68):
    - `StreamInterface::seek()`
    - `StreamInterface::rewind()`
    - `UploadedFileInterface::moveTo()`
