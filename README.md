@@ -34,6 +34,7 @@ Notes
    - `StreamInterface::seek()`
    - `StreamInterface::rewind()`
    - `UploadedFileInterface::moveTo()`
+- The combination of these means that the most user-friendly (and safe) hack definition of this interface isn't suitable for use by implementations (see #2)
 
 Future Work
 -----------
