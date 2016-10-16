@@ -10,6 +10,13 @@ HHI files are ignored by HHVM, however they give the typechecker information
 about the interfaces. This allows usage of the canonical PHP interface at
 runtime, while also giving the benefits of static type checking.
 
+Installation
+------------
+
+```
+composer require hack-psr/psr7-http-message-hhi
+```
+
 Notes
 -----
 
