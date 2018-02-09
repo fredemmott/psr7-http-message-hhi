@@ -84,7 +84,7 @@ interface StreamInterface
      *     SEEK_END: Set position to end-of-stream plus offset.
      * @throws \RuntimeException on failure.
      */
-    public function seek(int $offset, int $whence = SEEK_SET): void;
+    public function seek(int $offset, int $whence = \SEEK_SET): void;
 
     /**
      * Seek to the beginning of the stream.
